@@ -45,8 +45,7 @@ function draw() {
   //Add code for displaying text here!
   image(boy ,200,340,200,300);
 
- 
-  
+
   treeObj.display();
   stone1.display();
   mango1.display();
@@ -59,15 +58,7 @@ function draw() {
    mango9.display();
   groundObject.display();
 
-  detectCollision(stone1,mango1);
-  detectCollision(stone1,mango2);
-  detectCollision(stone1,mango3);
-  detectCollision(stone1,mango4);
-  detectCollision(stone1,mango5);
-  detectCollision(stone1,mango6);
-  detectCollision(stone1,mango7);
-  detectCollision(stone1,mango8);
-  detectCollision(stone1,mango9);
+  
 }
 function mouseDragged(){
    Matter.Body.setPosition(stone1.body,{x:mouseX,y:mouseY});
@@ -80,15 +71,4 @@ function keyPressed(){
 	Matter.body.setPosition(stone1.body,{x:100,y:465})
 	attach.Launch(stone1.body);
 }
-}
-function detectCollision(lstone,lmango)
-{
- mangoBodyPosition=lmango.body.position
- stone1BodyPosition=lstone.body.position
-
- var distance = dist(stone1BodyPosition.x,stone1BodyPosition.y,mangoBodyPosition.x,mangoBodyPosition.y)
- if (distance<=lmango.r+lstone.r)
- {
-	 Matter.Body.setStatic(lmango.body,false)
- }
 }
